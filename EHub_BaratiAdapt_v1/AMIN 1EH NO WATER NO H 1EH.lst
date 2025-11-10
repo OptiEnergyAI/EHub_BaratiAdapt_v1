@@ -1,0 +1,230 @@
+GAMS 51.2.0  56392656 Sep 29, 2025          WEX-WEI x86 64bit/MS Windows - 10/30/25 19:30:32 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2   
+   3  i Ernergy Hubs just one in this scenario /EH1/
+   4   
+   5  t Hours in a day /1*24/;
+   6   
+   7  *Now Parametrs, only the thing that are time or EH dependant*
+   8   
+   9  Parameters
+  10   
+  11  Pel(i,t) Load profile 24hrs
+  12   
+  13  Lt(t) Electricity Price
+  14   
+  15  Gmax_chp(i) Maximum imported natural gas of CHP
+  16   
+  17  Gmax_b(i)  Maximum imported natural gas of Boiler
+  18   
+  19  Emin_es(i) Minimum capcity of ES
+  20   
+  21  Emax_es(i)  Maximum capacity of ES
+  22   
+  23  PHmax_ac(i) Maximum input heat of AC
+  24   
+  25  Pmax_ec(i) Maximum electricity input of EC
+  26   
+  27  Pmax_ice(i) Maximum electricity input of CS
+  28   
+  29  Emin_hs(i) Minimum capacity of HS
+  30   
+  31  Emax_h(i) Maximum capacity of HS
+  32   
+  33  Emin_cs(i) Minimum capacity of CS
+  34   
+  35  Emax_cs(i) Maximum capacity of CS
+  36  ;
+  37   
+  38  *Pel(i,t) Import .xlsx data string*
+  39   
+**** File: C:\Users\Ernesto\Desktop\GAMS\AMIN\Pel_data.gdx
+**** Msg : No such file or directory: "C:\Users\Ernesto\Desktop\GAMS\AMIN\Pel_data.gdx"
+  41  $GDXIN Pel_data.gdx
+****                    $510
+**** 510  Unable to open gdx file for $GDXIN
+  42  $LOAD Pel
+****      $502
+**** 502  GDXIN  file not open - ignore rest of line
+  44  DISPLAY Pel;
+****            $141
+**** 141  Symbol declared but no values have been assigned. Check for missing
+****         data definition, assignment, data loading or implicit assignment
+****         via a solve statement. Suppress with $onImplicitAssign.
+****         A wild shot: You may have spurious commas in the explanatory
+****         text of a declaration. Check symbol reference list.
+  45  ;
+  46   
+  47  Scalars
+  48   
+  49  Lambda_gas Gas price should be constat check later /0.22/
+  50   
+  51  OM_chp Maintenance cost coefficient CHP /2/
+  52   
+  53  OM_b Maintenance cost Boiler /2.7/
+  54   
+  55  PEN_curt Penalty of load curtailment /20/
+  56   
+  57  LHV Low calorific value of natural gas /9.7/
+  58   
+  59  eta_b Boiler gas to coefficient /0.8/
+  60   
+  61  ETAes_c Charging efficency of ES /0.9/
+  62   
+  63  ETAes_d Discharging efficency of ES /0.9/
+  64   
+  65  COPec performace coefficient EC /4/
+  66   
+  67  COPice performance coefficiewnt CS  /3.5/
+  68   
+  69  COPac performance coefficient AC probably single effect try double effect /1.2/
+  70   
+  71  COcurt coefficient of maximum curtailed load /0.25/
+  72   
+  73  MRh_up Maximum coefficient for up heating load /0.5/
+  74   
+  75  MRh_down Maximum coefficient for down heating load /0.2/
+  76   
+  77  MRe_up maximum coefficient DRP upper limit /0.5/
+  78   
+  79  MRe_down Maximum coeeficient DROP lower limit /0.2/
+  80   
+  81  ETAcs_c Chargin efficency CS /0.97/
+  82   
+  83  ETAcs_d Discharging efficency CS /0.95/
+  84  ;
+  85   
+  86  Variables
+  87   
+  88  Pg(i,t)  Imported power from the main grid
+  89   
+  90  Z1
+  91  ;
+  92   
+  93  Positive Variables
+  94   
+  95  Pe_up(i,t) shift up of electrical load by DRP
+  96   
+  97  Pe_down(i,t) shift down of electrical load by DRP
+  98   
+  99  Pe_CHP(i,t) output electrical power from CHP
+ 100   
+ 101  Ph_CHP(i,t) output heating power from CHP
+ 102   
+ 103  Ph_b(i,t) output heating power from boiler units
+ 104   
+ 105  Ees(i,t) Saved energy in ES
+ 106   
+ 107  Ehs(i,t) Saved energy in AZ
+ 108   
+ 109  Ecs(i,t) Saved energy in CS
+ 110   
+ 111  Cec(i,t) cooling power EC
+ 112   
+ 113  Cac(i,t) cooling power AC
+ 114   
+ 115  Pcsd(i,t) cooling power CS
+ 116   
+ 117  Gchp(i,t) Imported gas from gas network by CHP
+ 118   
+ 119  Gb(i,t) Imported gas from gas network by biler units
+ 120   
+ 121  Pice(i,t) Imported power to CS
+ 122   
+ 123  Pec(i,t) Imported power to EC
+ 124   
+ 125  Pcurt(i,t) Curtailed load
+ 126   
+ 127  PHac(i,t) Imported heat to AC;
+ 128   
+ 129  Binary Variables
+ 130   
+ 131  Idown_h(i,t) binary variable of down heating DR
+ 132   
+ 133  Iup_h(i,t) binary variable of up heating DR
+ 134   
+ 135  Kc_es(i,t) binary variable of ES charging
+ 136   
+ 137  Kd_es(i,t)   binary variable of ES discharging
+ 138   
+ 139  Ie_up(i,t)  binary variable of up of electrical DR
+ 140   
+ 141  Ie_down(i,t)  binary variable of down of electrical DR;
+ 142   
+ 143  Equations  Obj,Const1,Const2,Const3,Const4,Const5,Const6,Const7,Const8,Const9,Const10;
+ 144   
+ 145  Obj.. Z1 =e= sum((i,t), Pg(i,t)*Lt(t)+(Gchp(i,t)*Lambda_gas)+((Pe_CHP(i,t)+Ph_CHP(i,t))*OM_chp)+(Gb(i,t)*Lambda_gas)+(Ph_b(i,t)*OM_b)+(Pcurt(i,t)*PEN_curt));
+ 146   
+ 147  *Demand Response Programming*
+ 148   
+ 149  Const1(i).. sum(t,Pe_up(i,t)) =e= sum(t,Pe_down(i,t));
+ 150  *Grants that total energy doesn't change, peak hour equal to off peak, eq.4*
+ 151   
+ 152  Const2(i,t).. Pe_up(i,t) =g= 0;
+ 153  *LOWER limitation on how much can increase electrical load eq.5*
+ 154   
+ 155  Const3(i,t).. Pe_up(i,t) =l= MRe_up*Pel(i,t)*Ie_up(i,t);
+ 156  *UPPER limitation on how much can increase electrical load eq.5*
+ 157   
+ 158  Const4(i,t).. Pe_down(i,t) =g= 0;
+ 159  *LOWER limitation on how much can DEcrease electrical load eq.6*
+ 160   
+ 161  Const5(i,t).. Pe_down(i,t) =l= MRe_down*Pel(i,t)*Ie_down(i,t);
+ 162  *UPPER limitation on how much can DEcrease electrocal load eq.6*
+ 163   
+ 164  Const6(i,t).. Ie_up(i,t)+Ie_down(i,t) =g= 0;
+ 165   
+ 166  Const7(i,t).. Ie_up(i,t)+Ie_down(i,t) =l= 1;
+ 167   
+ 168  Const8(i,t).. Pcurt(i,t) =g= 0;
+ 169   
+ 170  Const9(i,t).. Pcurt(i,t) =l= Pel(i,t)*COcurt;
+ 171   
+ 172   
+ 173   
+ 174   
+ 175   
+ 176   
+ 177   
+ 178   
+ 179   
+ 180   
+ 181   
+ 182   
+ 183   
+ 184   
+ 185   
+ 186   
+
+**** LIST OF STRAY NAMES - CHECK DECLARATIONS FOR SPURIOUS COMMAS
+**** STRAY NAME Const10 OF TYPE EQU  
+
+**** 3 ERROR(S)   0 WARNING(S)
+GAMS 51.2.0  56392656 Sep 29, 2025          WEX-WEI x86 64bit/MS Windows - 10/30/25 19:30:32 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Users\Ernesto\Desktop\GAMS\AMIN\AMIN 1EH NO WATER NO H 1EH.gms
+     2       40 CALL           1      40  GDXXRW "Pel_data.xlsx" output=Pel_data.gdx par=Pel rng='Foglio1!A1:C25' rdim=2 cdim=0 values=3
+
+
+COMPILATION TIME     =        1.000 SECONDS      3 MB  51.2.0 56392656 WEX-WEI
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G250826+0003Cc-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Ernesto\Desktop\GAMS\AMIN\AMIN 1EH NO WATER NO H 1EH.gms
+Output     C:\Users\Ernesto\Desktop\GAMS\AMIN\AMIN 1EH NO WATER NO H 1EH.lst
+
+**** USER ERROR(S) ENCOUNTERED

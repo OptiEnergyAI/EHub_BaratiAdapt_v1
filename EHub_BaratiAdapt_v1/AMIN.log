@@ -1,0 +1,296 @@
+--- Job AMIN.gms Start 11/07/25 10:04:52 51.2.0 56392656 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\51\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input C:\Users\Ernesto\Desktop\AMIN\AMIN.gms
+    PageSize 0
+    ScrDir C:\Users\Ernesto\Desktop\AMIN\225b\
+    SysDir C:\GAMS\51\
+    LogOption 3
+    AppendLog 1
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: GAMS Demo, for EULA and demo limitations see   G250826+0003Cc-GEN
+          https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+          C:\GAMS\51\gamslice.txt
+          v:2                                                              
+          Demo license for demonstration and instructional purposes only
+System information: 6 physical cores and 16 Gb physical memory detected
+GAMS 51.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- AMIN.gms(68) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_el.gdx par=Pel rng=el!A2:C25 rdim=2 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_el.gdx
+Total time = 2610 Ms
+--- AMIN.gms(70) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_el.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_el.gdx
+--- AMIN.gms(74) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_th.gdx par=Phl rng=th!A2:C25 rdim=2 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_th.gdx
+Total time = 1516 Ms
+--- AMIN.gms(76) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_th.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_th.gdx
+--- AMIN.gms(80) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_cs.gdx par=CL rng=cs!A2:C25 rdim=2 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_cs.gdx
+Total time = 1563 Ms
+--- AMIN.gms(82) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_cs.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_cs.gdx
+--- AMIN.gms(86) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_pv.gdx par=Ppv rng=pv!A2:C25 rdim=2 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_pv.gdx
+Total time = 1375 Ms
+--- AMIN.gms(88) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_pv.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_pv.gdx
+--- AMIN.gms(92) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_wt.gdx par=Pwt rng=wt!A2:C25 rdim=2 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_wt.gdx
+Total time = 1125 Ms
+--- AMIN.gms(94) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_wt.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_wt.gdx
+--- AMIN.gms(98) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_Lt.gdx par=Lt rng=price_el!A2:B25 rdim=1 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_Lt.gdx
+Total time = 1094 Ms
+--- AMIN.gms(100) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_Lt.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_Lt.gdx
+--- AMIN.gms(104) 3 Mb
+--- call gdxxrw.exe loads.xlsx output=loads_gas.gdx par=Lambda_gas rng=gas22!A2:B25 rdim=1 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\loads.xlsx
+Output file: C:\Users\Ernesto\Desktop\AMIN\loads_gas.gdx
+Total time = 1094 Ms
+--- AMIN.gms(106) 3 Mb
+--- GDXin=C:\Users\Ernesto\Desktop\AMIN\loads_gas.gdx
+--- GDX File ($gdxIn) C:\Users\Ernesto\Desktop\AMIN\loads_gas.gdx
+--- AMIN.gms(620) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=Z1_opt        rng=Summary!A1      rdim=0 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1329 Ms
+--- AMIN.gms(621) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=CostComp      rng=Costi!A1        rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1641 Ms
+--- AMIN.gms(622) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=CostComp_tot  rng=Costi_tot!A1    rdim=1 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1640 Ms
+--- AMIN.gms(623) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=ElBal         rng=El_Bal!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1500 Ms
+--- AMIN.gms(624) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=HtBal         rng=Ht_Bal!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1781 Ms
+--- AMIN.gms(625) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=ClBal         rng=Cl_Bal!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1688 Ms
+--- AMIN.gms(626) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=PelSup        rng=El_Sup!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1625 Ms
+--- AMIN.gms(627) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=PelDem        rng=El_Dem!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1781 Ms
+--- AMIN.gms(628) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=HtSup         rng=Ht_Sup!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1750 Ms
+--- AMIN.gms(629) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=HtDem         rng=Ht_Dem!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1641 Ms
+--- AMIN.gms(630) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=ClSup         rng=Cl_Sup!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1828 Ms
+--- AMIN.gms(631) 3 Mb
+--- call gdxxrw.exe results.gdx output=results.xlsx par=ClDem         rng=Cl_Dem!A1       rdim=3 cdim=0
+
+GDXXRW           51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+Input file : C:\Users\Ernesto\Desktop\AMIN\results.gdx
+Output file: C:\Users\Ernesto\Desktop\AMIN\results.xlsx
+Total time = 1594 Ms
+--- AMIN.gms(655) 3 Mb
+--- Starting execution: elapsed 0:00:32.477
+--- AMIN.gms(466) 4 Mb
+--- Generating MIP model AMIN
+--- AMIN.gms(468) 4 Mb
+---   1,323 rows  841 columns  2,929 non-zeroes
+---   240 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 5.000E+02] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 1.000E+00] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.000E-01, 1.427E+02]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:32.497
+
+IBM ILOG CPLEX   51.2.0 56392656 Sep 29, 2025          WEI x86 64bit/MS Window
+
+*** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- Space for names approximately 0.05 Mb
+--- Use option 'names no' to turn use of names off
+--- GMO memory 0.75 Mb (peak 0.75 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.03 Mb (peak 0.13 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-25 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Generic callback                                 0x50
+Tried aggregator 2 times.
+MIP Presolve eliminated 870 rows and 250 columns.
+MIP Presolve added 1 rows and 0 columns.
+MIP Presolve modified 11 coefficients.
+Aggregator did 143 substitutions.
+Reduced MIP has 310 rows, 448 columns, and 943 nonzeros.
+Reduced MIP has 107 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.70 ticks)
+Found incumbent of value 78504.004009 after 0.02 sec. (2.18 ticks)
+Probing time = 0.00 sec. (0.04 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 121 rows and 168 columns.
+Reduced MIP has 189 rows, 280 columns, and 607 nonzeros.
+Reduced MIP has 59 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.33 ticks)
+Probing time = 0.00 sec. (0.02 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 189 rows, 280 columns, and 607 nonzeros.
+Reduced MIP has 59 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.36 ticks)
+Probing time = 0.00 sec. (0.02 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 12 threads.
+Tried aggregator 1 time.
+Aggregator did 59 substitutions.
+Reduced LP has 130 rows, 221 columns, and 489 nonzeros.
+Presolve time = 0.00 sec. (0.16 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =         42240.181844
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =         47805.624984
+Root relaxation solution time = 0.01 sec. (0.67 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        48515.0133    40027.3433            17.49%
+Found incumbent of value 48515.013345 after 0.03 sec. (6.92 ticks)
+      0     0    47805.6250     3    48515.0133    47805.6250       47    1.46%
+*     0+    0                        47808.7750    47805.6250             0.01%
+Found incumbent of value 47808.774984 after 0.03 sec. (7.39 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.03 sec. (7.42 ticks)
+Parallel b&c, 12 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.03 sec. (7.42 ticks)
+
+--- MIP status (102): integer optimal, tolerance.
+--- Cplex Time: 0.03sec (det. 7.42 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-25 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Tried aggregator 1 time.
+LP Presolve eliminated 1089 rows and 522 columns.
+Aggregator did 196 substitutions.
+Reduced LP has 37 rows, 123 columns, and 167 nonzeros.
+Presolve time = 0.00 sec. (0.74 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =         41502.855704
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 1.28 ticks)
+
+
+Solution satisfies tolerances
+
+--- Reading solution for model AMIN
+--- Executing after solve: elapsed 0:00:32.724
+--- AMIN.gms(609) 4 Mb
+--- GDX File (execute_unload) C:\Users\Ernesto\Desktop\AMIN\results.gdx
+*** Status: Normal completion
+--- Job AMIN.gms Stop 11/07/25 10:05:25 elapsed 0:00:32.726

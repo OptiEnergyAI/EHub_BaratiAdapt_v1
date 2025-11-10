@@ -1,0 +1,53 @@
+- GDXReader:
+    file: C:\Users\Ernesto\Desktop\AMIN\results.gdx
+    symbols: 
+      - name: CostComp
+      - name: CostComp_tot
+      - name: Cost_totale
+      - name: ElBal
+      - name: ElResidual
+      - name: HtBal
+      - name: HtResidual
+      - name: ClBal
+      - name: ClResidual
+      - name: Z1_opt
+- ExcelWriter:
+    file: C:\Users\Ernesto\Desktop\AMIN\results_export.xlsx
+    valueSubstitutions: {
+      EPS: EPS,
+      INF: INF,
+      -INF: -INF,
+      UNDEF: UNDEF,
+      NA: NA
+    }
+    symbols:
+      - name: CostComp
+        range: CostComp!A1
+        columnDimension: 0
+      - name: CostComp_tot
+        range: CostComp_tot!A1
+        columnDimension: 0
+      - name: Cost_totale
+        range: Cost_totale!A1
+        columnDimension: 0
+      - name: ElBal
+        range: ElBal!A1
+        columnDimension: 0
+      - name: ElResidual
+        range: ElResidual!A1
+        columnDimension: 0
+      - name: HtBal
+        range: HtBal!A1
+        columnDimension: 0
+      - name: HtResidual
+        range: HtResidual!A1
+        columnDimension: 0
+      - name: ClBal
+        range: ClBal!A1
+        columnDimension: 0
+      - name: ClResidual
+        range: ClResidual!A1
+        columnDimension: 0
+      - name: Z1_opt
+        range: Z1_opt!A1
+        columnDimension: 0
