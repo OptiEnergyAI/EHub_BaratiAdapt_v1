@@ -1,0 +1,145 @@
+Sets
+
+i Ernergyu Hubs just one in this scenario /eh1/
+
+t Hours in a day /1*24/;
+
+*Now Parametrs, only the thing that are time or EH dependant*
+
+Parameters
+
+Lt(t) Electricity Price
+
+Lambda_t(t) Gas price should be constat check later
+
+Gmax_chp(i) Maximum imported natural gas of CHP
+
+Gmax_b(i)  Maximum imported natural gas of Boiler
+
+Emin_es(i) Minimum capcity of ES
+
+Emax_es(i)  Maximum capacity of ES
+
+PHmax_ac(i) Maximum input heat of AC
+
+Pmax_ec(i) Maximum electricity input of EC
+
+Pmax_ice(i) Maximum electricity input of CS
+
+Emin_hs(i) Minimum capacity of HS
+
+Emax_h(i) Maximum capacity of HS
+
+Emin_cs(i) Minimum capacity of CS
+
+Emax_cs(i) Maximum capacity of CS
+;
+
+Scalars
+
+Lambda Gas price should be constat check later /0.22/
+
+OM_chp Maintenance cost coefficient CHP
+
+OM_b Maintenance cost Boiler
+
+PEN_curt Penalty of load curtailment
+
+LHV Low calorific value of natural gas
+
+eta_b Boiler gas to coefficient
+
+eta_charge Charging efficency of ES
+
+eta_disc Discharging efficency of ES
+
+COPec performace coefficient EC
+
+COPice performance coefficiewnt CS
+
+COPac performance coefficient AC
+
+COcurt coefficient of maximum curtailed load
+
+MRup_h Maximum coefficient for up heating load
+
+MRdown_h Maximum coefficient for down heating load
+
+MRup_e maximum coefficient DRP upper limit
+
+MRdown_e Maximum coeeficient DROP lower limit
+
+ETAcs_c Chargin efficency CS
+
+ETAcs_d Discharging efficency CS
+;
+
+Variable
+
+Pg(i,t)  Imported power from the main grid;
+
+Positive Variable
+
+Pe_up(i,t) shift up of electrical load by DRP
+
+Pe_down(i,t) shift down of electrical load by DRP
+
+Pe_CHP(i,t) output electrical power from CHP
+
+Ph_CHP(i,t) output heating power from CHP
+
+Ph_b(i,t) output heating power from boiler units
+
+Ees(i,t) Saved energy in ES
+
+Ehs(i,t) Saved energy in AZ
+
+Ecs(i,t) Saved energy in CS
+
+Cec(i,t) cooling power EC
+
+Cac(i,t) cooling power AC
+
+Pcsd(i,t) cooling power CS
+
+Gchp(i,t) Imported gas from gas network by CHP
+
+Gb(i,t) Imported gas from gas network by biler units
+
+Pice(i,t) Imported power to CS
+
+Pec(i,t) Imported power to EC
+
+Pcurt(i,t) Curtailed load
+
+PHac(i,t) Imported heat to AC;
+
+Binary Variables
+
+Idown_h(i,t) binary variable of down heating DR
+
+Iup_h(i,t) binary variable of up heating DR
+
+Kc_es(i,t) binary variable of ES charging
+ 
+Kd_es(i,t)   binary variable of ES discharging
+ 
+Iup_e(i,t)  binary variable of up of electrical DR
+ 
+Idown_e(i,t)  binary variable of down of electrical DR;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
